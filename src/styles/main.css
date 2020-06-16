@@ -1,0 +1,175 @@
+/*Cria uma 'variável' com o valor da cor*/
+:root{
+    --title-color: #322153;
+    --primary-color: #34cb79;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: #f0f0f5;
+    --webkit-font-smoothing: antialiased;
+}
+
+a{
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: var(--title-color);
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#page-home{
+    height: 120vh;
+
+    background: url('../assets/home-background.svg') no-repeat;
+    background-position: 35vw bottom;
+}
+
+/*Limites laterais do conteúdo.*/
+#page-home .content{
+    width: 90%;
+    /*Largura máxima de content*/
+    max-width: 1100px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    /*Determina uma margem automática para a direita e esquerda, centralizando o conteúdo.*/
+    /*
+    Quando há um valor, aplica-se a todos os lados.
+    Quando há apenas dois valores (margin: 0 auto .i.e), aplica-se o primeiro valor
+    à Top e Bottom e depois à Left e Right.
+    Quando há três valores, o primeiro aplica-se a Top, segundo a Left e Right e o último a Bottom
+    Quando há 4 valores, aplica-se a Top - Right - Bottom - Left*/
+    margin: 0 auto;
+}
+
+/*- - BOX-MODEL - -
+Block: Exibição do elemento por toda a linha.
+Inline: Box ocupa apenas o espaço mínimo necessário para o elemento.
+*/
+#page-home header{
+    margin-top: 48px;
+    /*Por fora do header, a caixa possui comportamento de block.
+    Mas os elementos internos organizam-se em uma mesma linha (flex).*/
+    display: flex;
+    /*Alinha os itens verticalmente*/
+    align-items: center;
+    /*Justifica o conteúdo da linha, de modo que eles ocupem toda a linha com um espaço de preenchimento entre eles.*/
+    justify-content: space-between;
+}
+
+#page-home header a{
+    display: flex;
+    font-weight: bold;
+    color: var(--title-color);
+}
+
+#page-home header a span{
+    display: flex;
+    background-image: url(../assets/log-in.svg);
+    width: 20px;
+    height: 20px;
+
+    margin-right: 16px;
+}
+
+#page-home main{
+    max-width: 560px;
+
+    flex: 1;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#page-home main h1{
+    font-size: 54px;
+}
+
+#page-home main p{
+    font-size: 24px;
+    line-height: 38px;
+    margin-top: 24px;
+}
+
+#page-home main a{
+    width: 100%;
+    max-width: 360px;
+    height: 72px;
+
+    border-radius: 8px;
+    
+
+    display: flex;
+    align-items: center;
+
+    margin-top: 40px;
+    
+    background-color: var(--primary-color);
+    transition: 400ms;
+}
+
+#page-home main a:hover{
+    background-color: #2fb86e;
+}
+
+#page-home main a span{
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    width: 72px;
+    height: 72px;
+
+    background-color: rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+}
+
+#page-home main a span::after{
+    content: "";
+    background-image: url(../assets/search.svg);
+
+    width: 20px;
+    height: 20px;
+}    
+
+#page-home main a strong{
+    color: white;
+    flex: 1;
+
+    text-align: center;
+}
+
+@media (max-width: 900px){
+    #page-home{
+        background-position-x: 70vw;
+    }
+
+    #page-home .content{
+        align-items: center;
+        text-align: center;
+    }
+
+    #page-home header a{
+        position: absolute;
+        bottom: 48px;
+
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #page-home main{
+        align-items: center;
+    }
+}
